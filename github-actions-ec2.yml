@@ -4,18 +4,18 @@ name: Push-to-EC2
 on:
   push:
     branches:
-      - master
+      - dev
 
 jobs:
   deploy:
-    name: Deploy to EC2 on master branch push
+    name: Deploy to EC2 on dev branch push
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the files
         uses: actions/checkout@v2
 
-      - name: Deploy to Server 1
+      - name: Deploy to sport_app
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
